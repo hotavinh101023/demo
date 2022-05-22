@@ -1,0 +1,266 @@
+:root {
+    --white-color: #fff;
+    --star-gold: #e6de09;
+    --black-color: #000;
+    --text-color: #333;
+    --primary-color: #ee4d2d;
+    --border-color: #dbdbdb;
+    --navbar-height: 34px;
+    --header-height: 120px --header-with-search-height: calc(var(--header-height) - var(--navbar-height))
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes headerNotifyGrow {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* responsive */
+
+.gird {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 40px;
+
+}
+
+.gird__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 16px;
+    margin-left: -5px;
+}
+
+/* Test */
+
+.grid__column-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+.grid__column-10 {
+    padding-left: 5px;
+    padding-right: 24px;
+    width: 83.3334%;
+}
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    animation: fadeIn linear 0.1s;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__body {
+    --growth-from: 0.7;
+    --growth-to: 1;
+    margin: auto;
+    z-index: 1;
+    animation: growth linear 0.1s;
+}
+
+/* Button */
+
+.btn {
+    height: 34px;
+    min-width: 142px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.3rem;
+    padding: 0 12px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    background-color: var(--white-color);
+}
+
+.btn.btn--size-s {
+    height: 30px;
+    font-size: 12px;
+    padding: 0 8px;
+}
+
+.btn.btn--normal:hover {
+    background-color: rgba(199, 194, 194, 0.3);
+}
+
+.btn.btn--primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn.btn--primary:hover {
+    opacity: 0.8;
+}
+
+.btn.btn--disabled {
+    cursor: default;
+    background-color: #ccc;
+}
+
+/* Selection */
+.select-input {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    min-width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 180px;
+    position: relative;
+}
+
+
+.select-input ::after {
+    position: absolute;
+    width: 100%;
+    content: "";
+    display: block;
+    height: 20px;
+    left: 0;
+    top: -16px;
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+}
+
+.select-input__label {
+    font-size: 1.4rem;
+}
+
+.select-input__list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 26px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding-left: 0;
+    list-style: none;
+    padding: 10px 16px;
+    display: none;
+}
+
+
+.select-input__link {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 5px 4px;
+}
+
+.select-input__list a:hover {
+    color: var(--primary-color);
+}
+
+.select-input__icon {
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+}
+
+
+/* Phân trang */
+.pagination{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-item{
+    margin: 0 12px;
+}
+
+.pagination-item__link{
+    --height: 30px;
+    display: block;
+    text-decoration: none;
+    font-size: 2rem;
+    color: #939393;
+    height: var(--height);
+    padding: 0 10px;
+    min-width: 40px;
+    text-align: center;
+    line-height: var(--height);
+}
+
+.pagination-item--active .pagination-item__link{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 2px;
+}
+
+.pagination-item--active .pagination-item__link:hover{
+    background-color: #fb8068;
+}
